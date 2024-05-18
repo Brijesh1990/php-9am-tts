@@ -1,0 +1,9 @@
+@font-face {
+    font-family: show-card;
+    src: url('../fonts/Sho-CardCapsNF.otf');
+}
+h1 
+{
+font-family: show-card;
+font-size: 55px;
+}
