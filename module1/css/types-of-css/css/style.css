@@ -1,0 +1,17 @@
+div 
+{
+    width: 50%;
+    height: auto;
+    margin: auto;
+    padding: 20px;
+    background-color: aqua;
+}
+h1 
+{
+    color: blue;
+    font-size: 40px;
+}
+p 
+{
+    color: coral;
+}
