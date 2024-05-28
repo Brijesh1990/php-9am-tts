@@ -1,0 +1,18 @@
+body 
+{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+}
+.contact-hr
+{
+    width: 5%;
+    height: auto;
+    border: solid 2px red;
+}
+
+::placeholder 
+{
+    color: white !important;
+}
