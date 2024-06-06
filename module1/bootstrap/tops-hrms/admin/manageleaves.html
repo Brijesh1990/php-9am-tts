@@ -27,7 +27,7 @@
 <div class="admin-bottom-header shadow p-3">
 <div class="row">
 <div class="col-md-4">    
-<h6><a href="dashboard.html"><span class="ms-5 bi bi-speedometer"></span> &nbsp;Dashboard</a></h6>
+    <h6><a href="dashboard.html"><span class="ms-5 bi bi-speedometer"></span> &nbsp;Dashboard</a></h6>
 </div>
 <div class="col-md-8">
 <input type="text" placeholder="search here anything....." class="form-control ms-0 w-75">
@@ -41,13 +41,13 @@
   <ul class="sidebar-link">
     <li><a href="manageemployee.html"><span class="bi bi-person"></span> Manage Employee</a></li>
     <li class="dropdown"><a class="dropdown-toggle" data-bs-toggle="dropdown" href="#"><span class="bi bi-calendar"></span>Add Leaves</a>
-      <ul class="dropdown-menu bg-white text-dark p-2" style="max-width: 250px !important;">
-        <li><a href="addleaves.html" class="text-dark">AddLeaves <span class="bi bi-calendar"></span></a></li>
-        <li><a href="manageleaves.html" class="text-dark">ManageLeaves <span class="bi bi-calendar"></span></a></li>
-      </ul>
-    
-    
-    </li>
+        <ul class="dropdown-menu bg-white text-dark p-2" style="max-width: 250px !important;">
+          <li><a href="addleaves.html" class="text-dark">AddLeaves <span class="bi bi-calendar"></span></a></li>
+          <li><a href="manageleaves.html" class="text-dark">ManageLeaves <span class="bi bi-calendar"></span></a></li>
+        </ul>
+      
+      
+      </li>
     <li><a href="addattendance.html"><span class="bi bi-calendar"></span>Add Attendance</a></li>
     <li><a href="addfaq.html"><span class="bi bi-help"></span>Add FAQ</a></li>
     <li><a href="managecontacts.html"><span class="bi bi-book"></span>Manage Contacts</a></li>
@@ -59,65 +59,41 @@
 <div class="col-md-9 admin-dashboard">
 <div class="container p-5">
 <div class="row">
-<h3 class="ms-4">Welcome to Admin Dashboard</h3>
-<div class="col-md-3 ms-5 bg-danger p-4 mt-4">
-  <h4 class="text-white">Total Employee</h4>
-  <h2 class="text-center"><span class="badge badge-lg bg-white text-dark">10</span></h2>
-</div>
-<div class="col-md-3 ms-5 bg-primary p-4 mt-4">
-  <h4 class="text-white">Total Contacts</h4>
-  <h2 class="text-center"><span class="badge badge-lg bg-white text-dark">10</span></h2>
-</div>
-<div class="col-md-3 ms-5 bg-success p-4 mt-4">
-  <h4 class="text-white">Total Feedback</h4>
-  <h2 class="text-center"><span class="badge badge-lg bg-white text-dark">10</span></h2>
-</div>
-</div>
+<h3 class="ms-4">Manage Leaves <span class="bi bi-calendar"></span></h3>
+<hr class="border border-2 border-primary ms-5 w-50">
+<div class="col-md-12 ms-4 bg-white shadow p-4 mt-4">
+ <table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Employeename</th>
+            <th>Leaves</th>
+            <th>Department Name</th>
+            <th>Leave Types</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1001</td>
+            <td>Nupur patel</td>
+            <td>12</td>
+            <td>CSE</td>
+            <td>PL</td>
+            <td><div style="min-width: 80px;"><a href=""><span class="bi bi-whatsapp text-success fs-2"></span></a>
+                <a href=""><span class="bi bi-trash text-danger fs-2"></span></a>
+                </div>
+            </td>
+        </tr>
 
-<!-- graph -->
-<h3 class="ms-4 mt-5">Manage data</h3>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<div id="chart_div"></div>
+    </tbody>
+ </table>
+</div>    
+</div>
 </div>   
 </div>
 </div>   
 </div>
 <!-- footer -->
-
-
-<script>
-  google.charts.load('current', {packages: ['corechart', 'bar']});
-google.charts.setOnLoadCallback(drawBasic);
-
-function drawBasic() {
-
-      var data = google.visualization.arrayToDataTable([
-        ['City', '2010 Population',],
-        ['New York City, NY', 8175000],
-        ['Los Angeles, CA', 3792000],
-        ['Chicago, IL', 2695000],
-        ['Houston, TX', 2099000],
-        ['Philadelphia, PA', 1526000]
-      ]);
-
-      var options = {
-        title: 'Population of Largest U.S. Cities',
-        chartArea: {width: '60%', height :'300'},
-        hAxis: {
-          title: 'Total Population',
-          minValue: 0
-        },
-        vAxis: {
-          title: 'City'
-        }
-      };
-
-      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-      chart.draw(data, options);
-    }
-</script>
-
-
 </body>
 </html>
