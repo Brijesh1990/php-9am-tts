@@ -1,2 +1,145 @@
 what is SQL ?
- 
+sql stands for structured query language
+sql is a case insenstive language
+examples : insert or INSERT or Insert
+sql is used to create a database and tables structured.
+Sql is used no conditions based create only query or commands in sql.
+SQL used some query or command to create a database and tables structured
+
+types of SQL command or queries 
+a) DDL (data definition language)
+b) DML (data manupulation language)
+c) DQL (data query language)
+d) TCL (trasactional query language)
+
+a) DDL : stands for data definition language it is used to create a database definition and tables structured.
+
+examples : 
+1) create
+2) Alter
+3) truncate
+4) drop
+5) rename
+6) change
+
+1) how to create a database structured
+syntax : create database databasename;
+examples : create database flipkartdb;
+create database flip_db;
+
+Note : database name dones accept start with underscore , dash, white space            
+
+
+2) how to create a table structured
+
+table chart
+
+columns                       datatype(size)
+
+id                            int(desfault size)  primary key auto_increment
+name                          char , varchar(0-255)
+email                         varchar(255)
+password                      varchar(255)
+mobile                        int(11),bigInt(20)
+address                       text 
+message                       text
+photo                         varchar(0-255), blob
+status                        enum
+date                          varchar(0-255), date
+datetime                      datetime
+
+
+syntax : 
+create table tablename
+(
+columname(id) int primary key auto_increment,
+columname datatype(0-255),
+columname dataype(0-255)  
+
+) 
+
+examples :  
+create table employee 
+(
+empid int AUTO_INCREMENT primary key,
+empname varchar(155),
+password varchar(255),
+email varchar(255),
+mobile bigint
+
+);
+
+create table country
+(
+countryid int primary key AUTO_INCREMENT,
+countryname varchar(255),
+createed_date date    
+
+)
+
+
+create table state
+(
+stateid int primary key AUTO_INCREMENT,
+statename varchar(255),
+createed_date date    
+
+)
+
+
+3) alter :alter is used to add columns | modify columns | change columns name in tables or change or rename tables name.
+
+  syntax : 
+  alter table tablename;
+
+   a) add new columname 
+      alter table tablename add address text;
+      examples : alter table employee add address text; 
+
+   b) alter table employee add username varchar(255) after empid;
+
+   c) alter table employee change employeeid employee_id int AUTO_INCREMENT;
+
+   d) how to rename a tablename   
+      rename table employee to tbl_employee
+
+
+4) drop : drop is used to deleted database and its structured 
+          how to drop database 
+          a) drop database databasename;
+              examples : drop database flip_db;
+
+          how to delete table 
+
+          b) drop table tablename 
+
+              examples : drop table tbl_country;        
+
+
+5) truncate : truncate is used to delete all data or rows from tables after truncate we can not rollback data from tables.
+
+           c) truncate table tablename;
+              examples : truncate table tbl_employee;
+
+
+2) DML :dml stands for data manupulation language
+
+       command or query :a) insert 
+                         b) delete 
+                         c) update 
+
+      a) how to insert data 
+         syntax : insert into tablename(columnname) values('value');
+         examples :  
+         insert into tbl_employee(username,empname,password,email,mobile,address,gender) values('brijesh','brijesh','brij1235454','b@gmail.com',9121212112,'150 feet ring road','male');
+         or 
+
+         insert into tbl_employee(username,empname,password,email,mobile,address,gender) values('maulik','maulik','mrij1235454','m@gmail.com',9121212112,'150 feet ring road','male'),('vandan','vandan','v1235454','v@gmail.com',9121212112,'150 feet ring road','male');
+
+         or 
+
+         insert into tbl_employee  values('null','vivek007','vivek','v545454','v@gmail.com',69212121,'rajkot','male')
+
+         or
+           
+        insert into tbl_employee  values('null','bhavna007','bhavna','b545454','b@gmail.com',69212121,'rajkot','female'),('null','vishwa007','vishwa','v545454','vishwa@gmail.com',69212121,'rajkot','male'),('null','kumar007','kumar','k545454','k@gmail.com',69212121,'rajkot','male'),('null','kamlesj007','kamlesh','k545454','kamlesh@gmail.com',69212121,'rajkot','male')
