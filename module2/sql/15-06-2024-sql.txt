@@ -1,0 +1,183 @@
+DML
+2)how to update data
+  syntax : update tablename set columns1='value1',columns2='value2' where id='1';
+  examples:update tbl_employee set username='kavita007',empname='kavita',password='kavita007',email='kavita1990@gmail.com',mobile=912121212121,address='150 feet ring road behind saurastra kala kendra society rajkot',gender='female' where employee_id=8;
+
+       or
+update tbl_employee set username='kavita007',empname='kavita',password='kavita007',email='kavita1990@gmail.com',mobile=912121212121,address='150 feet ring road behind saurastra kala kendra society rajkot',gender='female' where username='kamlesh007';
+
+      or
+
+update tbl_employee set username='kavita007',empname='kavita',password='kavita007',email='kavita1990@gmail.com',mobile=912121212121,address='150 feet ring road behind saurastra kala kendra society rajkot',gender='female' where email='kamlesh@gmail.com';
+
+
+3) how to delete data or rows 
+    Note : after deleted data we can rollback data 
+   
+   a)delete all data 
+      delete from tbl_employee;
+   b) delete particular one data
+      delete from tbl_employee where employee_id=1; 
+   c) delete particular with its name
+       delete from tbl_employee where username='bhavna007';
+   d) in : in is used to select alternate columns and permormed delete that columns
+
+      delete from tbl_employee where employee_id in (1,3,4);  
+
+    e) between : 
+
+        delete from tbl_employee where employee_id BETWEEN 2 and 5;  
+
+    f) delete from tbl_employee where employee_id >=5 ;
+
+    
+   DQL : dql stands for data query language
+
+          select  
+
+          a) select all data or fetch all data
+             select * from tbl_employee;
+          b) select particular from id
+               select * from tbl_employee where employee_id=16;
+          c)  select particular columns name
+               select * from tbl_employee where username='bhavna007'; 
+
+           d) select particular columns name 
+               select employee_id,username,email from tbl_employee;
+              
+           e) select * from tbl_employee where employee_id in (1,15,16);
+
+           f) select * from tbl_employee where employee_id between 2 and 25;
+
+           g) select * from tbl_employee where employee_id >=5;  
+
+
+           order by :
+                  filter data from tables in ASC and DESC order there we used order by
+                  select * from tbl_employee order by username asc;
+                  select * from tbl_employee order by username desc;
+               
+ 
+           group by :group by filters data in group of columns in a tables 
+
+                     select sum(salary),department from tbl_employee GROUP by department;  
+ 
+           like :like is used to search ant rows via its name wildcard pattern or keyword
+
+                  a) search username that start with v or k letter
+                    select * from tbl_employee where username like 'k%';
+                  b) search those data end with a letter
+                     select * from tbl_employee where empname like '%a'; 
+
+                  c) search thos name that will start either a or end a anyehere
+                     select * from tbl_employee where empname like '%a%'; 
+
+
+                 
+              SQL functions : There are two type of functions
+                    a) aggrigate function
+                    b) scalar function
+
+
+                    a) aggrigate : 
+                         1) avg()
+                           examples : select avg(salary) as average_of_salary from tbl_employee;
+                         2) sum()
+                           examples : select sum(salary) as sum_of_salary from tbl_employee;
+                         3) max()
+                           examples : select max(salary)  from tbl_employee;
+                         4) min()
+                            examples : select min(salary)  from tbl_employee;
+                         5) count()
+                            examples : select count(employee_id) as total_numbers_employee  from tbl_employee;  
+
+                     b) scalar :
+                        1) first()
+                          examples :select first(username) from tbl_employee;
+                        2) last()
+                          examples : 
+                          examples :select last(username) from tbl_employee;
+                        3) lcase()
+                          examples :select lcase(username) from tbl_employee;
+                        4) ucase()    
+                          examples : select ucase(username) from tbl_employee; 
+
+                    
+       sub query in SQL : query within another query
+                          
+                          find second highest salary
+                         examples :select max(salary) as second_highest_salary from tbl_employee where salary < (select max(salary) from tbl_employee);
+        
+
+         TCL (trasactional query language)
+            a) commit 
+               examples :commit is used to save data after delete any data.
+                         start TRANSACTION;
+                         delete from tbl_employee where employee_id=3;
+                         commit;  
+      
+            b) rollback
+                examples : rollback is used to return all commit data
+                           start TRANSACTION;
+                           select from tbl_employee where employee_id=3;
+                           rollback;         
+
+            Note : mysql is not support commit and rollback
+                   
+ 
+          SQL key constraints : sql key constraints provide to set limit on tables.
+     
+                                types of sql key constraints
+                                a) primary key
+                                   1) A PK is never return null values
+                                   2) A pk is always auto_increment
+                                   3) A pk always provides only one times in a table                              4) A pk is stores unique values in a table
+                                    
+                                    user
+                         uid(pk)   uname   name   email           salary
+                          1         A       A     A@gmail.com     15000 
+                                    
+                                b) foreign key
+                                   1) A fK is never return null values
+                                   2) A fk is used to provides relationship
+                                   3) A fk is used more than one times in a tables                                      
+                                  tbl_stuent 
+                                stid(pk)      name
+                                  1           Maulik Hadiyal
+                                  2           Manish kariya
+                                  3           Amrine kureshi
+                                  4           Vandana kacha
+                                                                  
+                                tbl_teacher
+                              tid(pk)    name    phone     email         stid(fk)
+                               1        sanket    915454xxx s@gmail.com        3
+                               2        brijesh   915454xxx s@gmail.com        3                                   3        Prakruti  915454xxx p@gmail.com        2
+                               
+         
+                               
+                             examples : 
+                             create table tbl_students(
+                             stid int primary key AUTO_INCREMENT,
+                             studentname varchar(255)    
+
+                              )       
+                                         
+
+                             examples : 
+                           create table tbl_teacher(
+                           tid int primary key AUTO_INCREMENT,
+                           teachername varchar(255),
+                           phone bigint,
+                           email varchar(255),
+                           stid int REFERENCES tbl_students(stid)
+
+                            )  
+                                                                      
+
+
+
+                                c) unique key
+                                d) compund key
+                                     
+
+           
