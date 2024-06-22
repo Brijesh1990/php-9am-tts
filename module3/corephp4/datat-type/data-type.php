@@ -9,13 +9,28 @@
         c) string    $c='brijesh';  $d="brijesh";
         d) boolean   true or false 
 
-        
-
+      
 
 */
 
 
-$name="545454";
+// $name="545454";
+// echo var_dump($name);
+
+// $name=545454;
+// echo var_dump($name);
+
+
+
+// $name=5454.1541541;
+// echo var_dump($name);
+
+// $name=true;
+// echo var_dump($name);
+
+
+
+$name=5454.1541541;
 echo var_dump($name);
 
 
