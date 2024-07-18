@@ -1,0 +1,22 @@
+{
+    "contacts":[
+        {
+            "id":1001,
+            "name":"brijesh",
+            "email":"bkpandey@gmail.com",
+            "phone":94121212121,
+            "subject":"24x7 support",
+            "message":"hi i am brijesh"
+        },
+
+        {
+            "id":1001,
+            "name":"rajesh",
+            "email":"rajesh@gmail.com",
+            "phone":94121212121,
+            "subject":"24x7 support",
+            "message":"hi i am brijesh"
+        }
+        
+    ]
+}
