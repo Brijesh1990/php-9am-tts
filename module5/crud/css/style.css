@@ -1,0 +1,55 @@
+body 
+{
+    margin: 0;
+    padding: 0;
+    background-color: lightgray;
+}
+.app 
+{
+    width: 60% !important;
+    height: auto !important;
+    margin: auto !important;
+    margin-top: 5% !important;
+    display: flex !important;
+    flex-direction: row;
+    animation: alternate 3s fadeInUpBig;
+}
+.app input[type="text"]
+{
+    width: 500px;
+    height: auto;
+    padding: 7px;
+    background-color: lightgray;
+    border: none;
+    border-bottom: solid 2px black;
+}
+.app input[type="submit"]
+{
+    width: 520px;
+    height: auto;
+    padding: 7px;
+    background-color: black;
+    color: white;
+    border: none;
+    margin-top: 3%;
+}
+#update_data
+{
+    width: 520px;
+    height: auto;
+    padding: 7px;
+    background-color: red;
+    color: white;
+    border: none;
+    margin-top: 3%;
+}
+
+.app h1 
+{
+    /* animation: 2s infinite heartBeat; */
+    animation: 2s infinite bounce;
+}
+.box1 img 
+{
+    animation: infinite fadeIn 3s;
+}
