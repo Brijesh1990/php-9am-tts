@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2024 at 07:31 AM
+-- Generation Time: Aug 17, 2024 at 06:43 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -134,6 +134,7 @@ INSERT INTO `tbl_country` (`cid`, `cname`) VALUES
 
 CREATE TABLE `tbl_register` (
   `rid` int(11) NOT NULL,
+  `photo` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -150,8 +151,8 @@ CREATE TABLE `tbl_register` (
 -- Dumping data for table `tbl_register`
 --
 
-INSERT INTO `tbl_register` (`rid`, `firstname`, `lastname`, `email`, `password`, `phone`, `address`, `cid`, `sid`, `ctid`, `added_date_time`) VALUES
-(1, 'brijesh', 'pandey', 'bkpandey@gmail.com', 'MTIz', 9173357217, '150 feet ring road', 1, 2, 8, '10/08/2024 10:02:58 am');
+INSERT INTO `tbl_register` (`rid`, `photo`, `firstname`, `lastname`, `email`, `password`, `phone`, `address`, `cid`, `sid`, `ctid`, `added_date_time`) VALUES
+(3, 'uploads/customers/chef2.jpg', 'brijesh', 'pandey', 'bkpandey.pandey@gmail.com', 'MTIzNDU2', 863879865, 'raiya road ', 2, 6, 19, '17/08/2024 09:36:26 am');
 
 -- --------------------------------------------------------
 
@@ -254,7 +255,7 @@ ALTER TABLE `tbl_country`
 -- AUTO_INCREMENT for table `tbl_register`
 --
 ALTER TABLE `tbl_register`
-  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_state`

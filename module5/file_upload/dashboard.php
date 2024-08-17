@@ -1,6 +1,13 @@
 <?php 
 require_once("navbar.php");
 require_once("config.php");
+// set session 
+if(!isset($_SESSION["register_id"]))
+{
+echo "<script>
+window.location='index.php';
+</script>";
+}
 // manage logged in profile of customers
 if(isset($_SESSION["register_id"]))
 {
@@ -10,6 +17,61 @@ $exe=mysqli_query($con,$select);
 $fetch=mysqli_fetch_array($exe);
 
 }
+
+// delete account
+if(isset($_GET["del-id"]))
+{
+$delid=base64_decode($_GET["del-id"]);
+$delete="delete from tbl_register where rid='$delid'";
+$exe=mysqli_query($con,$delete);
+if($exe)
+{
+unset($_SESSION["register_id"]);
+unset($_SESSION["fnm"]);
+unset($_SESSION["email"]);
+session_destroy();
+echo "<script>
+alert('You account removed successfully')
+window.location='login.php';
+</script>";
+
+
+}
+
+}
+// update account
+
+if(isset($_POST["upd-data"]))
+{
+$rid=$_SESSION["register_id"];    
+date_default_timezone_set("Asia/Calcutta");    
+// file upload or photo upload
+$tmp_name=$_FILES["img"]["tmp_name"];
+$size=$_FILES["img"]["size"]/1024;
+$type=$_FILES["img"]["type"];
+$path="uploads/customers/".$_FILES["img"]["name"];
+move_uploaded_file($tmp_name,$path);
+$fnm=$_POST["fnm"];
+$lnm=$_POST["lnm"];
+$em=$_POST["email"];
+$phone=$_POST["phone"];
+$add=$_POST["address"];
+$cn=$_POST["country"];
+$st=$_POST["state"];
+$ct=$_POST["city"];
+$reg_date=date("d/m/Y H:i:s a");
+
+$upd="update tbl_register set photo='$path',firstname='$fnm',lastname='$lnm',email='$em',phone='$phone',address='$add',cid='$cn',sid='$st',ctid='$ct' where rid='$rid'";
+
+$exe=mysqli_query($con,$upd);
+echo "<script>
+alert('You account updated successfully')
+window.location='dashboard.php';
+</script>";
+
+
+}
+
 ?>
 
 <!-- load jquery for ajax and fetch country , state and city --> 
@@ -17,32 +79,32 @@ $fetch=mysqli_fetch_array($exe);
 <script>
 function str(val)
 {
-    // alert('hi')
-    $.ajax({
-        type:"POST",
-        url:"getdata.php",
-        data:"cn="+val,
-        success:function(data)
-        {
-            $("#st").html(data);
-        }
+// alert('hi')
+$.ajax({
+type:"POST",
+url:"getdata.php",
+data:"cn="+val,
+success:function(data)
+{
+$("#st").html(data);
+}
 
-    })
+})
 }
 
 function str1(val)
 {
-    // alert('hi')
-    $.ajax({
-        type:"POST",
-        url:"getdata.php",
-        data:"st="+val,
-        success:function(data)
-        {
-            $("#ct").html(data);
-        }
+// alert('hi')
+$.ajax({
+type:"POST",
+url:"getdata.php",
+data:"st="+val,
+success:function(data)
+{
+$("#ct").html(data);
+}
 
-    })
+})
 }
 </script>    
 
@@ -55,7 +117,8 @@ function str1(val)
 <ul class="sidebar-links" style="min-width:280px !important">
 <li><a href="dashboard.php">Manage Profile</a></li>
 
-<li><a href="contact.php">Change Password</a></li>
+<li><a href="changepassword.php">Change Password</a></li>
+<li><a href="dashboard.php?del-id=<?php echo  base64_encode($fetch["rid"]);?>" onclick="return confirm('Are you sure to delete your account ?')">Delete Account ?</a></li>
 
 <li><a href="contact.php">Manage Notifications</a></li>
 
@@ -67,7 +130,7 @@ function str1(val)
 <div class="col-md-7">       
 <h3>Manage your profile</h3>
 <hr class="border border-1 border-dark w-25" />
-<form method="post" action="add-data.php" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data">
 <div class="form-group mt-2">
 <img src='<?php echo $fetch["photo"];?>' class="img-fluid w-25" />    
 <input type="file" name="img"  class="form-control" />
@@ -92,7 +155,7 @@ function str1(val)
 
 <div class="form-group mt-2">
 <textarea  name="address" placeholder="Enter address *" class="form-control">
-    <?php echo $fetch["address"];?>
+<?php echo $fetch["address"];?>
 </textarea>
 </div>  
 
@@ -105,8 +168,8 @@ $select="select * from tbl_country";
 $exe=mysqli_query($con,$select);
 while($fetch1=mysqli_fetch_array($exe))
 {
-    if($fetch1["cid"]==$fetch["cid"])
-    {
+if($fetch1["cid"]==$fetch["cid"])
+{
 
 ?>
 <option value="<?php echo $fetch1["cid"];?>" selected='selected'><?php echo $fetch1["cname"];?></option>

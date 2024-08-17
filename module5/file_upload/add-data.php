@@ -66,7 +66,6 @@ $size=$_FILES["img"]["size"]/1024;
 $type=$_FILES["img"]["type"];
 $path="uploads/customers/".$_FILES["img"]["name"];
 move_uploaded_file($tmp_name,$path);
-
 $fnm=$_POST["fnm"];
 $lnm=$_POST["lnm"];
 $em=$_POST["email"];

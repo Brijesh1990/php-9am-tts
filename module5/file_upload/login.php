@@ -61,7 +61,7 @@ if(isset($_POST["login"]))
 
 <div class="form-group mt-2">
 <input type="submit" name="login" value="SignIn" class="btn btn-dark text-white" />
-<b><a href="">Forget Password ?</a></b>
+<b><a href="forgetpassword.php">Forget Password ?</a></b>
 
 </div>  
 <div class="form-group mt-2">
