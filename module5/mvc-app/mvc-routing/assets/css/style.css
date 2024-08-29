@@ -1,53 +1,67 @@
 body 
 {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+margin: 0;
+padding: 0;
+overflow-x: hidden;
 }
 .nav 
 {
-    width: 100%;
-    height: auto;
+width: 100%;
+height: auto;
 }
 .nav ul 
 {
-    margin-left: 30%;
+margin-left: 30%;
 }
 .nav ul li 
 {
-    display: inline-block;
-    padding: 5px 25px;
+display: inline-block;
+padding: 5px 25px;
 }
 .nav a 
 {
-    color: white;
-    text-decoration: none;
-    list-style-type: none;
+color: white;
+text-decoration: none;
+list-style-type: none;
 }
 .dropdown:hover .dropdown-menu 
 {
-    display: block;
+display: block;
 }
 .footer-navbar li 
 {
-    display: bloack;
+display: bloack;
 }
 .footer-navbar a 
 {
-    text-decoration: none;
-    list-style-type: none;
-    color: white;
+text-decoration: none;
+list-style-type: none;
+color: white;
+}
+.sidebar-links li
+{
+display: block;
+padding: 15px 25px;
+text-decoration: none;
+list-style-type: none;
+}
+.sidebar-links a 
+{
+text-decoration: none;
+list-style-type: none;
+font-size: 22px;
+color: black;
 }
 @media only screen and (max-width:553px)
 {
 .nav ul 
 {
-    margin-left: 0% !important;
+margin-left: 0% !important;
 }
 
-    .nav ul li 
-    {
-        display: block;
-        padding: 5px 25px;
-    }   
+.nav ul li 
+{
+display: block;
+padding: 5px 25px;
+}   
 }
