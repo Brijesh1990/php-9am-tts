@@ -12,10 +12,21 @@ $baseurl="http://localhost/php-9am-tts/module5/mvc-app/mvc-routing/admin/assets/
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $baseurl;?>css/style.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='<?php echo $baseurl;?>css/red.css'>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-
+<!-- bvalidator validations -->
+ <!-- jquery bvalidator for validations -->
+<script src="<?php echo $baseurl;?>js/jquery.bvalidator.min.js"></script>
+<script src="<?php echo $baseurl;?>js/default.min.js"></script> 
+<script src="<?php echo $baseurl;?>js/red.js"></script> 
+<script>
+$(document).ready(function(){
+    $("#login").bValidator();
+})
+</script>
 </head>
 <body>
 <!-- admin login -->
@@ -28,12 +39,12 @@ $baseurl="http://localhost/php-9am-tts/module5/mvc-app/mvc-routing/admin/assets/
 </div>
 <div class="col-md-6 admin-login shadow p-5">
 <p class="text-center"><img src="<?php echo $baseurl;?>images/users.png" class="img-fluid w-25"></p>
-<form method="post">
+<form method="post" id="login">
 <div class="form-group mt-2">
-<input type="text" name="email" placeholder="email" class="form-control">
+<input type="text" name="email" data-bvalidator="required,email" placeholder="email" class="form-control">
 </div>
 <div class="form-group mt-2">
-<input type="password" name="password" placeholder="password" class="form-control">
+<input type="password" name="password" data-bvalidator="required,minlen[4],maxlen[10]" placeholder="password" class="form-control">
 </div>
 <div class="form-group mt-2">
 <input type="submit" name="login" value="Login"  class="btn btn-primary btn-sm">

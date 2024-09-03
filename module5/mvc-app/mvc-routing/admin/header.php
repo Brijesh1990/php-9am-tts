@@ -30,7 +30,11 @@ $baseurl="http://localhost/php-9am-tts/module5/mvc-app/mvc-routing/admin/assets/
 <h3 class="text-white ">SRMS Admin</h3>
 </div>
 <div class="col-md-7">
-<h6 class="text-white fs-5"><span class="bi bi-person text-white"></span> welcome:<?php echo $_SESSION["email"]; ?> &nbsp; <span class="bi bi-calendar"></span> &nbsp; <?php echo date("l j Y");?> &nbsp; <a href="<?php echo $mainurl;?>?logout-here"><button type="button" class="btn btn-sm btn-danger bg-danger ms-5" onclick="return confirm('Are you sure to logout as Admin ?')">Logout <span class="bi bi-power text-white"></span></button></a></h6>
+<h6 class="text-white fs-5"><span class="bi bi-person text-white"></span> welcome:<?php echo $_SESSION["email"]; ?> &nbsp; <span class="bi bi-calendar"></span> &nbsp; <?php echo date("l j Y");?> &nbsp;
+<!-- logout button -->
+<a href="<?php echo $mainurl;?>?logout-here">
+<button type="button" class="btn btn-sm btn-danger bg-danger ms-5" onclick="return confirm('Are you sure to logout as Admin ?')">Logout <span class="bi bi-power text-white"></span></button></a></h6>
+
 </div>
 </div>
 </div>

@@ -16,15 +16,23 @@
 </tr>
 </thead>
 <tbody>
+<?php 
+foreach($shwcategory as $row)
+{
+?>
 <tr>
-<td>1001</td>
-<td>150 feet ring raod rajkot</td>
-<td>CSE</td>
+<td><?php echo $row["category_id"];?></td>
+<td><?php echo $row["category_name"];?></td>
+<td><?php echo $row["category_descriptions"];?></td>
 <td><div style="min-width: 80px;"><a href=""><span class="bi bi-pencil text-success fs-2"></span></a> |
 <a href=""><span class="bi bi-trash text-danger fs-2"></span></a>
 </div>
 </td>
 </tr>
+
+<?php 
+}
+?>
 
 </tbody>
 </table>
