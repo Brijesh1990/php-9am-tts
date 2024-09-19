@@ -18,8 +18,6 @@ foreach($shwcategory as  $shwcategory1)
 
 <p class="mt-3"><img src="https://cdn.dribbble.com/users/179156/screenshots/11049577/media/dd80069e52d25505b405c0dafe15a9b4.gif" class="img-fluid m-0 p-0" /></a></p>
 
-
-
 <p class="mt-3"><img src="https://tahviehpars.com/wp-content/uploads/2020/02/giphy.gif" class="img-fluid m-0 p-0" /></a></p>
 </div>
 <div class="col-md-8">
@@ -29,16 +27,16 @@ foreach($shwcategory as  $shwcategory1)
 
 <!-- all products load here -->
 <div class="row">
-<!-- fetch all products here uploaded via admin -->
+<!-- fetch  products selected via category here uploaded via admin -->
  <?php
- foreach( $shwprod as $row)
+ foreach($shwprod as $row)
  { 
  ?>
 <div class="col-md-6">
 <p class="text-center"><img src="admin/<?php echo $row["photo"];?>" class="img-fluid" style="width: 70%; height: 300px;" /></p>
 <p class="text-center fs-4"><?php echo $row["productname"];?></p>
 <p class="text-center">Rs. <del><?php echo $row["oldprice"];?></del><?php echo $row["newprice"];?> -/</p>
-<p class="text-center"><button type="button" class="btn btn-dark text-white btn-sm">Click For Details >></button></p>    
+<p class="text-center"><a href="<?php echo $mainurl;?>productdetails?productid=<?php echo $row["product_id"];?>"><button type="button" class="btn btn-dark text-white btn-sm">Click For Details >></button></a></p>    
 </div>
 <?php 
  }

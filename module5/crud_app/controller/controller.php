@@ -23,7 +23,44 @@ class Controller extends Model
         }
         // display all task logic
         $shw=$this->selectalldata('tbl_addtask');
+
+        // delete task logic 
+        if(isset($_GET["deleteid"]))
+        {
+            $deleteid=$_GET["deleteid"];
+            $id=array("task_id"=>$deleteid);
+            $chk=$this->deletealldata('tbl_addtask',$id);
+            if($chk)
+            {
+                echo "<script>
+                alert('Task Deleted successfully')
+                window.location='./';
+                </script>";
+            }
+        }
         
+        // fetch or edit task details
+        if(isset($_GET["editid"]))
+        {
+            $id=$_GET["editid"];
+            $edittask=$this->editalldata('tbl_addtask','task_id',$id);
+        }
+        // create a logic of update task 
+        if(isset($_POST["updatetask"]))
+        {
+            date_default_timezone_set("Asia/Calcutta");
+            $id=$_GET["editid"];
+            $tasknm=$_POST["taskname"];
+            $added_date=$_POST["taskdate"];
+            $chk=$this->updata('tbl_addtask',$tasknm,$added_date,'task_id',$id);
+            if($chk)
+            {
+                echo "<script>
+                alert('Task Updated successfully')
+                window.location='./';
+                </script>";
+            }
+        }
         // load your templates of view here
         if(isset($_SERVER["PATH_INFO"]))
         {
@@ -34,7 +71,13 @@ class Controller extends Model
                     require_once('header.php');
                     require_once('content.php');
                     break;
-                
+
+                case '/edittask': 
+                    require_once('index.php');
+                    require_once('header.php');
+                    require_once('edittask.php');
+                    break;
+            
                 default: 
                     require_once('index.php');
                     require_once('header.php');

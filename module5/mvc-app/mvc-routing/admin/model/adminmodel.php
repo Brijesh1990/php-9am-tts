@@ -59,6 +59,30 @@ public function selectalldata($table)
     }
     return $arr;
 } 
+
+//create a member function for select all data and join tables
+public function selectalljoindata($table1,$table2,$where)
+{
+    $select="select * from $table1 join $table2 on $where";
+    $query=mysqli_query($this->conn,$select);
+    while($fetch=mysqli_fetch_array($query))
+    {
+        $arr[]=$fetch;
+    }
+    return $arr;
+} 
+
+//create a member function for select all data and join tables
+public function selectalljoinalldata($table1,$table2,$table3,$where,$where1)
+{
+    $select="select * from $table1 join $table2 on $where join $table3 on $where1";
+    $query=mysqli_query($this->conn,$select);
+    while($fetch=mysqli_fetch_array($query))
+    {
+        $arr[]=$fetch;
+    }
+    return $arr;
+} 
 //create a member function for logout as admin
 public function logout()
 {

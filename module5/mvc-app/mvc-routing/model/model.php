@@ -19,6 +19,31 @@ class Model
     
     // create a member function for show all data
     
+//create a member function for select all data
+public function selectalldata($table)
+{
+    $select="select * from $table";
+    $query=mysqli_query($this->conn,$select);
+    while($fetch=mysqli_fetch_array($query))
+    {
+        $arr[]=$fetch;
+    }
+    return $arr;
+} 
+
+//create a member function for select category and fetch its products
+public function selectcategoryproducts($table,$column,$id)
+{
+    $select="select * from $table where $column='$id'";
+    $query=mysqli_query($this->conn,$select);
+    while($fetch=mysqli_fetch_array($query))
+    {
+        $arr[]=$fetch;
+    }
+    return $arr;
+} 
+
+
     // create a member function for delete data
     
     // create a member function for edit data

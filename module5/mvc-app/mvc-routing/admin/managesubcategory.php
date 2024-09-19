@@ -23,7 +23,7 @@ foreach($shwsubcategory as $row)
 ?>
 <tr>
 <td><?php echo $row["subcategory_id"];?></td>
-<td><?php echo $row["category_id"];?></td>
+<td><?php echo $row["category_name"];?></td>
 <td><?php echo $row["subcategory_name"];?></td>
 <td><?php echo $row["subcategory_descriptions"];?></td>
 <td><div style="min-width: 80px;"><a href=""><span class="bi bi-pencil text-success fs-2"></span></a> |

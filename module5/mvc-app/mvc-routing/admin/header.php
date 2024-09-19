@@ -13,9 +13,13 @@ $baseurl="http://localhost/php-9am-tts/module5/mvc-app/mvc-routing/admin/assets/
 <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $baseurl;?>css/style.css'>
 <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $baseurl;?>css/gray.css'>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.6/css/dataTables.dataTables.css" />
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<!-- data tables CDN -->
+ <script src="https://cdn.datatables.net/2.1.6/js/dataTables.js"></script>
+
 <!-- jquery bvalidator for validations -->
 <script src="<?php echo $baseurl;?>js/jquery.bvalidator.min.js"></script>
 <script src="<?php echo $baseurl;?>js/default.min.js"></script>

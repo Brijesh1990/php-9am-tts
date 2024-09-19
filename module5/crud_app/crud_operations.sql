@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 05, 2024 at 06:54 AM
+-- Generation Time: Sep 10, 2024 at 06:48 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -38,10 +38,8 @@ CREATE TABLE `tbl_addtask` (
 --
 
 INSERT INTO `tbl_addtask` (`task_id`, `taskname`, `added_date`) VALUES
-(1, 'just ride a BMW car', '05/09/2024 10:04:52 am'),
-(2, 'just rid a alto 800', '05/09/2024 10:05:37 am'),
-(3, 'jsut performed php mvc crud oeprations', '05/09/2024 10:05:50 am'),
-(4, 'just completed the task', '05/09/2024 10:19:08 am');
+(2, 'just ride a BMW', '15/09/2024 9:59:37 am'),
+(7, 'react js crud', '10/09/2024 10:01:13 am');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +59,7 @@ ALTER TABLE `tbl_addtask`
 -- AUTO_INCREMENT for table `tbl_addtask`
 --
 ALTER TABLE `tbl_addtask`
-  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

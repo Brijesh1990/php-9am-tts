@@ -11,6 +11,18 @@
 <ul>
 <li><a href="<?php echo $mainurl;?>"><span class="bi bi-house"></span> Home</a></li>
 <li><a href="<?php echo $mainurl;?>about-us">About</a></li>
+<li class="dropdown"><a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Select Products Category <Span class="bi bi-person"></Span></a>
+<ul class="dropdown-menu bg-dark text-white">
+<?php 
+foreach($shwcategory as $shwcategory1)
+{
+?>
+<li><a href="<?php echo $mainurl;?>allproducts?categoryid=<?php echo $shwcategory1["category_id"];?>"><?php echo $shwcategory1["category_name"];?></a></li>
+<?php 
+}
+?>
+</ul>
+</li>
 <li><a href="<?php echo $mainurl;?>our-gallery">Gallery</a></li>
 <li><a href="<?php echo $mainurl;?>feedback">Feedback</a></li>
 <li class="dropdown"><a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Account <Span class="bi bi-person"></Span></a>

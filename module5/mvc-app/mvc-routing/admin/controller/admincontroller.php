@@ -33,17 +33,17 @@ window.location='./';
 //create an logic to add category here 
 if(isset($_POST["addcategory"]))
 {
-    $catnm=$_POST["categoryname"];
-    $catdesc=$_POST["categorydesc"];
-    $data=array("category_name"=>$catnm,"category_descriptions"=>$catdesc);
-    $chk=$this->insertalldata('tbl_ecomaddcategory',$data);
-    if($chk)
-    {
-        echo "<script>
-        alert('Your category added successfully')
-        window.location='./addcategory';
-        </script>";
-    }
+$catnm=$_POST["categoryname"];
+$catdesc=$_POST["categorydesc"];
+$data=array("category_name"=>$catnm,"category_descriptions"=>$catdesc);
+$chk=$this->insertalldata('tbl_ecomaddcategory',$data);
+if($chk)
+{
+echo "<script>
+alert('Your category added successfully')
+window.location='./addcategory';
+</script>";
+}
 }
 
 // create a logic for manage or read or show category
@@ -52,25 +52,55 @@ $shwcategory=$this->selectalldata('tbl_ecomaddcategory');
 // create a logic for add subcategory
 if(isset($_POST["addsubcategory"]))
 {
-    $catnm=$_POST["categoryname"];
-    $subcatnm=$_POST["subcategoryname"];
-    $subcatdesc=$_POST["subcategorydesc"];
+$catnm=$_POST["categoryname"];
+$subcatnm=$_POST["subcategoryname"];
+$subcatdesc=$_POST["subcategorydesc"];
 
-    $data=array("category_id"=>$catnm,"subcategory_name"=>$subcatnm,"subcategory_descriptions"=>$subcatdesc);
+$data=array("category_id"=>$catnm,"subcategory_name"=>$subcatnm,"subcategory_descriptions"=>$subcatdesc);
 
-    $chk=$this->insertalldata('tbl_ecomaddsubcategory',$data);
-    if($chk)
-    {
-        echo "<script>
-        alert('Your Subcategory added successfully')
-        window.location='./addsubcategory';
-        </script>";
-    }
+$chk=$this->insertalldata('tbl_ecomaddsubcategory',$data);
+if($chk)
+{
+echo "<script>
+alert('Your Subcategory added successfully')
+window.location='./addsubcategory';
+</script>";
+}
+}
+// create a logic for manage or read or show subcategory
+$shwsubcategory=$this->selectalljoindata('tbl_ecomaddsubcategory','tbl_ecomaddcategory','tbl_ecomaddsubcategory.category_id=tbl_ecomaddcategory.category_id');
+
+// create an logic of add products here
+if(isset($_POST["addproducts"]))
+{
+date_default_timezone_set("Asia/Calcutta");    
+$catnm=$_POST["category"];
+$subcatnm=$_POST["subcategory"];
+$pnm=$_POST["pname"];
+$tmp_name=$_FILES["pimage"]["tmp_name"];
+$path="uploads/products/".$_FILES["pimage"]["name"];
+move_uploaded_file($tmp_name,$path);
+$qty=$_POST["qty"];
+$oprice=$_POST["oprice"];
+$newprice=$_POST["newprice"];
+$pdesc=$this->conn->real_escape_string($_POST["pdesc"]);
+$added_date=date("d/m/Y H:i:s a");
+
+$data=array("category_id"=>$catnm,"subcategory_id"=>$subcatnm,"productname"=>$pnm,"photo"=>$path,"qty"=>$qty,"oldprice"=>$oprice,"newprice"=>$newprice,"descriptions"=>$pdesc,"added_date"=>$added_date);
+
+$chk=$this->insertalldata('tbl_ecomaddproduct',$data);
+if($chk)
+{
+echo "<script>
+alert('Your Products added successfully')
+window.location='./addproducts';
+</script>";
+}
 }
 
 
-// create a logic for manage or read or show subcategory
-$shwsubcategory=$this->selectalldata('tbl_ecomaddsubcategory');
+// create a logic for manage or read or show product
+$shwproducts=$this->selectalljoinalldata('tbl_ecomaddproduct','tbl_ecomaddcategory','tbl_ecomaddsubcategory','tbl_ecomaddcategory.category_id=tbl_ecomaddproduct.category_id','tbl_ecomaddsubcategory.subcategory_id=tbl_ecomaddproduct.subcategory_id');
 
 // create an logic of admin logout 
 if(isset($_GET["logout-here"]))
