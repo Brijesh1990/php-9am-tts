@@ -9,7 +9,7 @@
         <div class="col-md-7">
             <h1>Create Account</h1>
             <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quod atque aperiam odit eaque animi, blanditiis minus eum rem tempore! Vero porro totam quod soluta voluptatibus mollitia aliquid, unde hic?</p>
-            <form>
+            <form method="post" enctype="multipart/form-data">
                 <div class="form-group mt-3">
                     <input type="text" name="email" placeholder="Email *" class="form-control">
                 </div>
@@ -23,7 +23,7 @@
                     <input type="password" name="cpassword" placeholder="Confirmed Password *" class="form-control">
                 </div>
 
-                <div class="form-group mt-3">
+                <!-- <div class="form-group mt-3">
                     Male &nbsp<input type="radio" name="gender" value="male" placeholder="Confirmed Password *" class="m-0 p-0">
                     Female &nbsp<input type="radio" name="gender" value="female" placeholder="Confirmed Password *" class="m-0 p-0">
                     Other &nbsp<input type="radio" name="gender" value="Other" placeholder="Confirmed Password *" class="m-0 p-0">
@@ -57,10 +57,14 @@
                         <option value="">Rajkot</option>
                         <option value="">Navada</option>
                     </select>
-                </div>
+                </div> -->
 
                 <div class="form-froup mt-3">
-                    <textarea name="address" class="form-control"></textarea>
+                    <textarea name="address" class="form-control" placeholder="Address *"></textarea>
+                </div>
+
+                <div class="form-group mt-3">
+                    <input type="text" name="mobile" placeholder="Phone *" class="form-control">
                 </div>
                 <div class="form-froup mt-3">
                     <input type="submit" name="register" value="Register" class="btn btn-sm btn-dark text-white" >

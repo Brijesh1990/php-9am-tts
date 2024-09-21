@@ -7,7 +7,7 @@
             <h2>Login Form <button type="button" data-bs-dismiss="modal" class="btn btn-sm btn-danger text-white float-end">&times;</button></h2>
            <hr class="border border-2 border-dark w-25">
         
-           <form>
+           <form method="post">
             <div class="form-group mt-3">
                 <input type="text" name="email" placeholder="Email *" class="form-control">
             </div>

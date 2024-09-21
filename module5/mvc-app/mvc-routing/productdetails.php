@@ -21,9 +21,25 @@
 <input type="number" name="qty" value="1" min="1" max="10" class="form-control w-50" /></p>
 <p class="fs-3 bg-dark w-50 text-white p-2"><label>Subtotals of Rs.<?php echo  $shwprod[0]["newprice"];?></p>
 
-<p class=""><a href=""><button type="button" class="btn btn-dark text-white btn-lg">Continue Shop >></button></a> 
-<button type="button" class="btn btn-success text-white btn-lg">AddToCart >></button></p>
+<p class="">
+<a href=""><button type="button" class="btn btn-dark text-white btn-lg">Continue Shop >></button></a> 
+<?php
+if(!isset($_SESSION["customer_id"]))
+{ 
+?>
+<button type="button" class="btn btn-success text-white btn-lg"  onclick="addcrt()">AddToCart >></button></p>
 
+<?php 
+}
+else 
+{
+?>
+
+<button type="submit" name="addtocart" class="btn btn-success text-white btn-lg">AddToCart >></button></p>
+
+<?php 
+}
+?>
 <p class="">
     <label class="fs-3">Products Descriptions</p>
     <hr />
@@ -34,5 +50,13 @@
 </div>
 </div>
 </div>
+
+<script>
+  function addcrt()
+  {
+    alert('Want to add product in Cart Login First ?')
+    window.location='./create-account';
+  }
+</script>
 
 
