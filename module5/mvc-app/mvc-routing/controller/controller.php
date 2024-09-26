@@ -1,4 +1,5 @@
 <?php 
+error_reporting(0);
 require_once("model/model.php");
 class Controller extends Model 
 {
@@ -26,7 +27,7 @@ class Controller extends Model
         $shwprod=$this->selectcategoryproducts('tbl_ecomaddproduct','product_id',$id);
     }
 
-    // create a login for create customer account 
+    //  create customer account 
     if(isset($_POST["register"]))
     {
         date_default_timezone_set("Asia/Calcutta");
@@ -56,7 +57,6 @@ class Controller extends Model
     }
 
 //create logic for customer login 
-
 if(isset($_POST["login"]))
 {
 $email=$_POST["email"];
@@ -77,6 +77,42 @@ alert('Your email and password are incorrect try again')
 window.location='./';
 </script>";
 }
+}
+
+
+// add product in cart
+if(isset($_POST["addtocart"]))
+{
+    date_default_timezone_set("Asia/Calcutta");
+    $product_id=$_POST["product_id"];
+    $customer_id=$_SESSION["customer_id"];
+    $price=$_POST["newprice"];
+    $qty=$_POST["qty"];
+    $subtotal=$price*$qty;
+    $added_date=date("d.m.Y H:i:s a");
+    $data=array("pid"=>$product_id,"customer_id"=>$customer_id,"price"=>$price,"qty"=>$qty,"subtotal"=>$subtotal,"added_date"=>$added_date);
+    if($pwd==$cpwd)
+    {
+    $this->insertalldata('tbl_ecomcart',$data);
+    echo "<script>
+      alert('Your Product addedd successfully in Cart')
+      window.location='./viewcart';
+    </script>";
+    }
+}
+
+// logic for count cart after login
+if(isset($_SESSION["customer_id"]))
+{
+$customer_id=$_SESSION["customer_id"];    
+$carttotal=$this->cartcount('tbl_ecomcart','cartid','customer_id',$customer_id);
+}
+
+// logic for display all cart view after login customer
+if(isset($_SESSION["customer_id"]))
+{
+$customer_id=$_SESSION["customer_id"]; 
+$shwcart=$this->selectcategoryproducts('tbl_ecomcart','customer_id',$customer_id);
 }
 
 // create an logic for logout 
@@ -143,6 +179,14 @@ window.location='./';
                 require_once("productdetails.php");
                 require_once("footer.php");
                 require_once("login.php");
+                break;
+
+            case '/viewcart':
+                require_once("index.php");
+                require_once("header.php");
+                require_once("navbar.php");
+                require_once("viewcart.php");
+                require_once("footer.php");
                 break;
     
             default: 

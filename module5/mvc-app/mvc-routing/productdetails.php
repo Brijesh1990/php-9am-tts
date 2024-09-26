@@ -11,15 +11,17 @@
 <div class="row">
 <!-- fetch  products selected via category here uploaded via admin -->
 <div class="col-md-6 mt-5">   
+<form method="post">  
 <p class="text-center"><img src="admin/<?php echo  $shwprod[0]["photo"];?>" class="img-fluid" style="width: 70%; height: 300px;" /></p>
 </div>
 <div class="col-md-6 mt-5">
+<p class="fs-3"><input type="hidden" name="product_id" value="<?php echo  $shwprod[0]["product_id"];?>"></p>
 <p class="fs-3"><?php echo  $shwprod[0]["productname"];?></p>
-<p class="fs-5">Rs. <del><?php echo  $shwprod[0]["oldprice"];?></del><?php echo $shwprod[0]["newprice"];?> -/</p>
+<p class="fs-5">Rs. <del><?php echo  $shwprod[0]["oldprice"];?></del><input type="text" name="newprice" id="newprice" value="<?php echo $shwprod[0]["newprice"];?>" readonly style="border:none; width:60px"> -/</p>
 <p class="fs-3">
 <label class="fs-5">Select Quantity:</label>    
-<input type="number" name="qty" value="1" min="1" max="10" class="form-control w-50" /></p>
-<p class="fs-3 bg-dark w-50 text-white p-2"><label>Subtotals of Rs.<?php echo  $shwprod[0]["newprice"];?></p>
+<input type="number" name="qty" id="qty" onchange="return subtotal(this.value)" value="1" min="1" max="10" class="form-control w-50" /></p>
+<p class="fs-3 bg-dark w-50 text-white p-2"><label>Subtotals of Rs.<label id="tot"><?php echo  $shwprod[0]["newprice"];?> </label></p>
 
 <p class="">
 <a href=""><button type="button" class="btn btn-dark text-white btn-lg">Continue Shop >></button></a> 
@@ -46,6 +48,8 @@ else
     <p><?php echo $shwprod[0]["descriptions"];?></p>   
 </p>
 </div>
+
+</form>
 
 </div>
 </div>

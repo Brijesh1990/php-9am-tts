@@ -14,6 +14,7 @@ $baseurl="http://localhost/php-9am-tts/module5/mvc-app/mvc-routing/assets/";
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<script src="<?php echo $baseurl;?>js/main.js"></script>
 
 
 </head>
@@ -29,7 +30,7 @@ $baseurl="http://localhost/php-9am-tts/module5/mvc-app/mvc-routing/assets/";
 </div>
 <div class="col-md-3 mt-1">
 
-<button type="button" class="btn btn-sm btn-dark text-white ms-4"><Span class="bi bi-cart">&nbsp<Span class="badge badge-sm bg-danger text-white">0</Span></button>
+<button type="button" class="btn btn-sm btn-dark text-white ms-4"><Span class="bi bi-cart">&nbsp<Span class="badge badge-sm bg-danger text-white"><?php echo $carttotal[0]["total_count"];?></Span></button>
 <span class="bi bi-facebook fs-4"></span>
 <span class="bi bi-instagram fs-4"></span>
 <span class="bi bi-google fs-4"></span>
