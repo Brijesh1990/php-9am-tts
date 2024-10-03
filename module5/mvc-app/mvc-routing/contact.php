@@ -9,7 +9,7 @@
         <div class="col-md-6">
             <h1>Contact us Form</h1>
             <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quod atque aperiam odit eaque animi, blanditiis minus eum rem tempore! Vero porro totam quod soluta voluptatibus mollitia aliquid, unde hic?</p>
-            <form>
+            <form method="post">
             <div class="form-group mt-3">
                     <input type="text" name="name" placeholder="Name *" class="form-control">
                 </div>
