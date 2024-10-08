@@ -1,5 +1,5 @@
 <?php 
-error_reporting(0);
+//error_reporting(0);
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -127,7 +127,7 @@ $price=$_POST["newprice"];
 $qty=$_POST["qty"];
 $subtotal=$price*$qty;
 $added_date=date("d.m.Y H:i:s a");
-$data=array("pid"=>$product_id,"customer_id"=>$customer_id,"price"=>$price,"qty"=>$qty,"subtotal"=>$subtotal,"added_date"=>$added_date);
+$data=array("pid"=>$product_id,"customer_id"=>$customer_id,"price"=>$price,"quantity"=>$qty,"subtotal"=>$subtotal,"added_date"=>$added_date);
 if($pwd==$cpwd)
 {
 $this->insertalldata('tbl_ecomcart',$data);
@@ -143,13 +143,6 @@ if(isset($_SESSION["customer_id"]))
 {
 $customer_id=$_SESSION["customer_id"];    
 $carttotal=$this->cartcount('tbl_ecomcart','cartid','customer_id',$customer_id);
-}
-
-// logic for display all cart view after login customer
-if(isset($_SESSION["customer_id"]))
-{
-$customer_id=$_SESSION["customer_id"]; 
-$shwcart=$this->selectcategoryproducts('tbl_ecomcart','customer_id',$customer_id);
 }
 
 // applied contact us email sending logic
@@ -210,6 +203,70 @@ echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
 
 
+// forget password and send password in email logic 
+if(isset($_POST["frg"]))
+{
+
+require_once("PHPMailer/PHPMailer.php");
+require_once("PHPMailer/Exception.php");
+require_once("PHPMailer/SMTP.php");    
+$mail = new PHPMailer(true);
+try {    
+$email=$_POST["email"];    
+//Server settings
+$mail->SMTPDebug =false;                      //Enable verbose debug output
+$mail->isSMTP();                                            //Send using SMTP
+$mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+$mail->Username   = 'brijeshpandey.tops@gmail.com';                     //SMTP username
+$mail->Password   = 'inhv wvzr ihkp ypfe';                               //SMTP password
+$mail->SMTPSecure = "TLS";            //Enable implicit TLS encryption
+$mail->Port       = 587;                                    //TCP port to connect to; use 465 or  587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+//Recipients
+$mail->setFrom($_POST["email"], 'Mailer');
+$mail->addAddress("brijeshpandey.tops@gmail.com", 'Joe User');     //Add a recipient
+$mail->isHTML(true);                                  //Set email format to HTML
+$mail->Subject = 'Forget Password you can get your password in your email';
+$pass=$this->frgpassword('tbl_addcustomer','password',$email);
+$mail->Body    = "<h3>Your forget passsword is :</h3>".$pass;
+
+if($pass)
+{
+$mail->send();
+echo "<script>
+alert('Your Password successfully send on your email please checked your email')
+window.location='./';
+</script>";
+
+}
+else 
+{
+echo "<script>
+alert('Your email does not registered with us Please checked')
+window.location='./forgetpassword';
+</script>";
+}
+}
+catch (Exception $e) 
+{
+echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
+
+}
+
+// create an logic to display a cart after login 
+if(isset($_SESSION["customer_id"]))
+{
+$customer_id=$_SESSION["customer_id"];
+$shwcrt=$this->joindata('tbl_ecomcart','tbl_ecomaddproduct','tbl_addcustomer','tbl_ecomcart.pid=tbl_ecomaddproduct.product_id','tbl_ecomcart.customer_id=tbl_addcustomer.customer_id','customer_id',$customer_id);
+}
+// create an logic of subtotal 
+if(isset($_SESSION["customer_id"]))
+{
+$customer_id=$_SESSION["customer_id"];
+$subtotal=$this->subtotalcrt('tbl_ecomcart','subtotal','customer_id',$customer_id);
+
+}
 // create an logic for logout 
 if(isset($_GET["logout-here"]))
 {
@@ -246,6 +303,15 @@ require_once("footer.php");
 require_once("login.php");
 break;
 
+
+case '/forgetpassword':
+require_once("header.php");
+require_once("navbar.php");
+require_once("forgetpassword.php");
+require_once("footer.php");
+require_once("login.php");
+break;
+    
 case '/contact-us':
 require_once("header.php");
 require_once("navbar.php");
@@ -278,6 +344,13 @@ require_once("index.php");
 require_once("header.php");
 require_once("navbar.php");
 require_once("viewcart.php");
+require_once("footer.php");
+break;
+
+case '/checkout-here':
+require_once("index.php");
+require_once("header.php");
+require_once("checkout.php");
 require_once("footer.php");
 break;
 

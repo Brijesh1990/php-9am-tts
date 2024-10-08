@@ -29,6 +29,25 @@ $query=mysqli_query($this->conn,$insert);
 return $query; 
 }
 
+//create a member function for forget password
+public function frgpassword($table,$column,$email)
+{
+    $select="select $column from $table where email='$email'";
+    $exe=mysqli_query($this->conn,$select);
+    $num_rows=mysqli_num_rows($exe);
+    $fetch=mysqli_fetch_array($exe);
+    $pass=base64_decode($fetch["password"]);
+    if($num_rows==1)
+    {
+      return $pass;
+    }
+    else 
+    {
+     return false;
+    }
+
+}
+
 // create a member function for customers login
 public function customerlogin($table,$email,$password)
 {
@@ -73,7 +92,28 @@ $arr[]=$fetch;
 return $arr;
 } 
 
-
+// create a member function function for join tables 
+public function joindata($table,$table1,$table2,$where,$where1,$column,$customer_id)
+{
+$select="select * from $table join $table1 on $where join $table2 on $where1 where $table.$column='$customer_id'"; 
+$query=mysqli_query($this->conn,$select);
+while($fetch=mysqli_fetch_array($query))
+{
+$arr[]=$fetch;
+}
+return $arr; 
+}
+// create a member function for subtotal of cart 
+public function subtotalcrt($table,$column,$column1,$customer_id)
+{
+$select="select sum($column) as sum_total  from $table where $column1='$customer_id'";
+$query=mysqli_query($this->conn,$select);
+while($fetch=mysqli_fetch_array($query))
+{
+$arr[]=$fetch;
+}
+return $arr;   
+}
 // create a member function for delete data
 
 // create a member function for edit data

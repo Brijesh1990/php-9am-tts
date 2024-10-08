@@ -18,7 +18,7 @@
           
             <div class="form-froup mt-3">
                 <input type="submit" name="login" value="Login" class="btn btn-sm btn-dark text-white" >
-                <b><a href="">Forget Password ?</a></b>
+                <b><a href="<?php echo $mainurl;?>forgetpassword">Forget Password ?</a></b>
             </div>
 
             <div class="form-froup mt-3">

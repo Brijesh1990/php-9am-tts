@@ -5,16 +5,15 @@
             <!-- view cart here -->
            <table class="table table-responsive">
            <?php 
-           foreach($shwcart as $row)
+           foreach($shwcrt as $row)
            {
            ?>
-           <tr>
-             <td><?php echo $row["cartid"];?></td>  
-             <td><?php echo $row["pid"];?></td>  
-             <td><?php echo $row["customer_id"];?></td>  
+           <tr>  
+             <td><img src="admin/<?php echo $row["photo"];?>" style="width:100px; height:90px"></td>  
+             <td><?php echo $row["productname"];?></td>
+             <td><input type="number" min="1" value="<?php echo $row["quantity"];?>" class="form-control w-75"></td>    
              <td><?php echo $row["price"];?></td>  
-             <td><?php echo $row["subtotal"];?></td>  
-             <td><?php echo $row["added_date"];?></td>   
+             <td><?php echo $row["subtotal"];?></td>     
              <td><a href="<?php echo $row["cartid"];?>" class="btn btn-sm bg-danger text-white"><span class="bi bi-trash"></span></a></td>   
             </tr>
            <?php 
@@ -24,10 +23,10 @@
 
            <!-- subtotal of cart -->
             <tr  class="bg-dark text-white mt-3 fs-2">
-            <td align="right" colspan="7" class="mt-4">Subtotal of Products is Rs.</td>
+            <td align="right" colspan="7" class="mt-4">Subtotal of Products is Rs. <?php echo $subtotal[0]['sum_total'];?></td>
            </tr>
            <tr>
-            <td  align="right" colspan="7" class="mt-4"><button type="button" class="btn btn-lg btn-dark text-white">Go For Checkout >> </button></td>
+            <td  align="right" colspan="7" class="mt-4"><a href="<?php echo $mainurl;?>checkout-here"><button type="button" class="btn btn-lg btn-dark text-white">Go For Checkout >> </button></a></td>
            </tr>
            </table>
     </div>
