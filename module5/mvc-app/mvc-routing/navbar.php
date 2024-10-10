@@ -42,9 +42,9 @@ else
 ?>
 <li class="dropdown"><a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Welcome:<?php echo $_SESSION["name"];?> <Span class="bi bi-person"></Span></a>
 <ul class="dropdown-menu bg-dark" style="min-width:200px">
-<li><a href="<?php echo $mainurl;?>create-account">Manage Profile <Span class="bi bi-person"></Span></a></li>
-<li><a href="#">Manage Order <Span class="bi bi-person"></Span></a></li>
-<li><a href="#">Change Password <Span class="bi bi-lock"></Span></a></li>
+<li><a href="<?php echo $mainurl;?>manageprofile">Manage Profile <Span class="bi bi-person"></Span></a></li>
+<li><a href="<?php echo $mainurl;?>manageorder">Manage Order <Span class="bi bi-truck"></Span></a></li>
+<li><a href="<?php echo $mainurl;?>changepassword">Change Password <Span class="bi bi-lock"></Span></a></li>
 <li><a href="<?php echo $mainurl;?>?logout-here" class="btn btn-sm btn-danger text-white">Logout  <Span class="bi bi-power"></Span></a></li>
 </ul>
 </li>

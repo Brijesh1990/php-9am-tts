@@ -114,11 +114,18 @@ $arr[]=$fetch;
 }
 return $arr;   
 }
-// create a member function for delete data
+// create a member function for manage Profile
+public function manageprofile($table,$column,$customer_id)
+{
+$select="select * from $table where $column='$customer_id'";
+$query=mysqli_query($this->conn,$select);
+while($fetch=mysqli_fetch_array($query))
+{
+$arr[]=$fetch;
+}
+return $arr;
+} 
 
-// create a member function for edit data
-
-// create a member function for update data 
 // create a member function for count cart after login
 public function cartcount($table,$column,$column1,$customer_id)
 {
@@ -128,6 +135,8 @@ $fetch=mysqli_fetch_array($query);
 $arr[]=$fetch;
 return $arr;
 }
+
+
 // create a member function for logout as customer
 public function logout()
 {

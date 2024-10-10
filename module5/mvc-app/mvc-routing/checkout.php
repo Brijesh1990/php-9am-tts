@@ -1,51 +1,79 @@
+<!-- bvalidator validations -->
+<script>
+$(document).ready(function(){
+$("#checkout").bValidator();
+})
+</script>
 <!-- view cart -->
 <div class="container p-5 mt-5 shadow">  
 <div class="row">
 <div class="col-md-7">
 <h4>Please fill all details of customers for Product Deleivery</h3>
-<form method="post" enctype="multipart/form-data">
+<form method="post" id="checkout" enctype="multipart/form-data">
 <div class="form-group mt-3">
-<input type="text" name="email" placeholder="Email *" class="form-control">
+<input type="text" name="email" placeholder="Email *" data-bvalidator="required,email" value="<?php echo $shwprofile[0]["email"];?>" class="form-control">
 </div>
 <div class="form-group mt-3">
-<input type="text" name="name" placeholder="Name *" class="form-control">
+<input type="text" name="name" placeholder="Name *" data-bvalidator="required,alpha" value="<?php echo $shwprofile[0]["name"];?>" class="form-control">
+</div>
+
+<div class="form-group mt-3">
+<input type="text" name="mobile" placeholder="Phone *" data-bvalidator="required,minlen[10],maxlen[10],digit" class="form-control" value="<?php echo $shwprofile[0]["phone"];?>">
+</div>
+
+
+
+<div class="form-froup mt-3">
+<textarea name="address" class="form-control" placeholder="Address *" data-bvalidator="required"><?php echo $shwprofile[0]["address"];?></textarea>
 </div>
 
 
 <div class="form-group mt-3">
 <select name="country" class="form-control">
 <option value="">-select country-</option>
-<option value="">India</option>
-<option value="">Usa</option>
+<?php 
+foreach($country as $country1)
+{
+?>
+<option value="<?php echo $country1["cid"];?>"><?php echo $country1["countryname"];?></option>
+<?php 
+}
+?>
 </select>
 </div>
 
 <div class="form-group mt-3">
 <select name="state" class="form-control">
 <option value="">-select state-</option>
-<option value="">Gujrat</option>
-<option value="">California</option>
+<?php 
+foreach($state as $state1)
+{
+?>
+<option value="<?php echo $state1["sid"];?>"><?php echo $state1["statename"];?></option>
+<?php 
+}
+?>
 </select>
 </div>
 
 <div class="form-group mt-3">
 <select name="city" class="form-control">
 <option value="">-select city-</option>
-<option value="">Rajkot</option>
-<option value="">Navada</option>
+<?php 
+foreach($city as $city1)
+{
+?>
+<option value="<?php echo $city1["ctid"];?>"><?php echo $city1["cityname"];?></option>
+<?php 
+}
+?>
 </select>
-</div> 
-
-<div class="form-froup mt-3">
-<textarea name="address" class="form-control" placeholder="Address *"></textarea>
 </div>
 
-<div class="form-group mt-3">
-<input type="text" name="mobile" placeholder="Phone *" class="form-control">
-</div>
+
 
 <div class="form-group mt-3">
-<button type="button" class="btn btn-lg btn-dark text-white">Go For Online Payments >> </button>
+<button type="submit" class="btn btn-lg btn-dark text-white">Go For Online Payments >> </button>
 </div>
 </form>   
 </div>
@@ -72,7 +100,7 @@ foreach($shwcrt as $row)
 </tr>
 
 </table>
-    </div>
+</div>
 </div>
 
 </div>

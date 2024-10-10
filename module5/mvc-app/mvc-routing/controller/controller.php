@@ -1,5 +1,5 @@
 <?php 
-//error_reporting(0);
+error_reporting(0);
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -68,7 +68,7 @@ $attachment=__DIR__."<?php echo $baseurl;?>/thanks/thanks.pdf";
 $mail->isHTML(true);                                  //Set email format to HTML
 $mail->Subject = 'Thanks for create account with Us!';
 $mail->Body    = "<img src='' />".'<br>'.'<h2>Thank You for Signing Up” Email Template Examples</h2>."<br>"."Welcome emails have four times more open rates and five times more clicks. Thats a power you should use wisely The typical goals of doing a round of thank you for signing up emails are the following"';
-$data=array("email"=>$email,"name"=>$name,"password"=>$pwd,"address"=>$address,"added_date"=>$added_date);
+$data=array("email"=>$email,"name"=>$name,"password"=>$pwd,"address"=>$address,"phone"=>$mobile,"added_date"=>$added_date);
 if($pwd==$cpwd)
 {
 $mail->send();    
@@ -267,6 +267,21 @@ $customer_id=$_SESSION["customer_id"];
 $subtotal=$this->subtotalcrt('tbl_ecomcart','subtotal','customer_id',$customer_id);
 
 }
+// manage customer profile
+if(isset($_SESSION["customer_id"]))
+{
+$customer_id=$_SESSION["customer_id"];
+$shwprofile=$this->manageprofile('tbl_addcustomer','customer_id',$customer_id);
+
+}
+
+// fetch country in manage customer logic
+$country=$this->selectalldata('tbl_addcountry');
+// fetch state in manage customer logic
+$state=$this->selectalldata('tbl_addstate');
+// fetch city in manage customer logic
+$city=$this->selectalldata('tbl_addcity');
+
 // create an logic for logout 
 if(isset($_GET["logout-here"]))
 {
@@ -303,6 +318,23 @@ require_once("footer.php");
 require_once("login.php");
 break;
 
+
+case '/manageprofile':
+require_once("header.php");
+require_once("navbar.php");
+require_once("manageprofile.php");
+require_once("footer.php");
+require_once("login.php");
+break;
+
+
+case '/changepassword':
+require_once("header.php");
+require_once("navbar.php");
+require_once("changepassword.php");
+require_once("footer.php");
+require_once("login.php");
+break;
 
 case '/forgetpassword':
 require_once("header.php");
@@ -352,6 +384,15 @@ require_once("index.php");
 require_once("header.php");
 require_once("checkout.php");
 require_once("footer.php");
+break;
+
+
+case '/manageorder':
+require_once("header.php");
+require_once("navbar.php");
+require_once("manageorder.php");
+require_once("footer.php");
+require_once("login.php");
 break;
 
 default: 

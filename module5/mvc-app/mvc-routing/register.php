@@ -1,7 +1,6 @@
    <!-- content -->
 
    <div class="container p-5 mt-5 shadow">
-   
     <div class="row">
         <div class="col-md-4">
             <img src="https://sendwishonline.s3.us-east-2.amazonaws.com/group-cards/2021/Jun/welcome-to-our-team-animated-group-ecards.gif" class="img-fluid w-75" />
