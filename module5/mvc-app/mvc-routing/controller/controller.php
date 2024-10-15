@@ -386,6 +386,20 @@ require_once("checkout.php");
 require_once("footer.php");
 break;
 
+case '/PaymentSuccess':
+require_once("index.php");
+require_once("header.php");
+require_once("success.php");
+require_once("footer.php");
+break;
+
+case '/PaymentFailure':
+require_once("index.php");
+require_once("header.php");
+require_once("failure.php");
+require_once("footer.php");
+break;
+        
 
 case '/manageorder':
 require_once("header.php");

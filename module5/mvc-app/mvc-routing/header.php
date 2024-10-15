@@ -36,7 +36,7 @@ $baseurl="http://localhost/php-9am-tts/module5/mvc-app/mvc-routing/assets/";
 </div>
 <div class="col-md-3 mt-1">
 
-<button type="button" class="btn btn-sm btn-dark text-white ms-4"><Span class="bi bi-cart">&nbsp<Span class="badge badge-sm bg-danger text-white"><?php echo $carttotal[0]["total_count"];?></Span></button>
+<a href="<?php echo $mainurl;?>viewcart"><button type="button" class="btn btn-sm btn-dark text-white ms-4"><Span class="bi bi-cart">&nbsp<Span class="badge badge-sm bg-danger text-white"><?php echo $carttotal[0]["total_count"];?></Span></button></a>
 <span class="bi bi-facebook fs-4"></span>
 <span class="bi bi-instagram fs-4"></span>
 <span class="bi bi-google fs-4"></span>
