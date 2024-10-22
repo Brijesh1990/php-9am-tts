@@ -1,0 +1,14 @@
+@font-face {
+    font-family: monday;
+    src: url('../fonts/monday.ttf');
+}
+body 
+{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    background-color: lightgray !important;
+    font-family: monday;
+
+}
