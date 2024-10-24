@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // load our contact us page
+// Route::get('/',function(){
+//     return view('contactus');
+// });
+
 Route::get('/',function(){
-    return view('contactus');
+    return view('index');
 });
 
