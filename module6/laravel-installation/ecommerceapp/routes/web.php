@@ -1,5 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +22,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('contactus');
 // });
 
-Route::get('/',function(){
-    return view('index');
-});
+// Route::get('/',function(){
+//     return view('index');
+// });
 
+
+// create a route for load templates home page
+Route::get('/',[HomeController::class,'index']);
+Route::get('/contact-us',[ContactController::class,'index']);

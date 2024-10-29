@@ -1,8 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Contact;
-class ContactController extends Controller
+use App\Models\HomeModel;
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -11,7 +11,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('portfolio.contact-us');
+        // return view('ecom.basictemplates');
+        return view('portfolio.content');
+        
     }
 
     /**
