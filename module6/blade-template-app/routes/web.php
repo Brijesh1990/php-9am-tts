@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CreateAccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,5 @@ use App\Http\Controllers\HomeController;
 
 // load a oraganic templates Home page routing
 Route::get('/',[HomeController::class,'index']);
+Route::get('/contact-us',[ContactController::class,'index']);
+Route::get('/create-account',[CreateAccountController::class,'index']);

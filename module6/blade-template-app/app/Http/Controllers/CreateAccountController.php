@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Contact;
-class ContactController extends Controller
+use App\Models\CreateAccount;
+
+class CreateAccountController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -11,7 +13,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('organic.contactus');
+        return view('organic.register');
     }
 
     /**
