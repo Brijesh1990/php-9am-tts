@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\CreateAccount;
 
-class CreateAccountController extends Controller
+use Illuminate\Http\Request;
+
+class ShopNowController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -12,12 +12,7 @@ class CreateAccountController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('organic.register');
-    }
-    public function login()
-    {
-        return view('organic.login');
+    {   return view('organic.products');
     }
 
     /**

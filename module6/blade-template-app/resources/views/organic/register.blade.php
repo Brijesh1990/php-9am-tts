@@ -44,6 +44,8 @@
                   </div>
                   <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-dark btn-md rounded-0">Submit</button>
+                    <button type="reset" class="btn btn-danger btn-md rounded-0">Reset</button>
+                    <b class="ms-5">Already have an account ? <a href='/login-here'>Login Here</a>
                   </div>
                 </form>
                 

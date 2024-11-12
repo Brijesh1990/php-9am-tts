@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\CreateAccount;
+namespace App\Http\Controllers\admin;
 
-class CreateAccountController extends Controller
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class AdminDashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,11 +14,7 @@ class CreateAccountController extends Controller
      */
     public function index()
     {
-        return view('organic.register');
-    }
-    public function login()
-    {
-        return view('organic.login');
+        return view('organic.admin.dashboard');
     }
 
     /**
