@@ -8,7 +8,7 @@ use App\Http\Controllers\ShopNowController;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\admin\AdminLoginController;
 use App\Http\Controllers\admin\AdminDashboardController;
-
+use App\Http\Controllers\admin\AddCategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,3 +33,6 @@ Route::get('/all-products',[ShopNowController::class,'index']);
 Route::get('/our-blogs',[BlogsController::class,'index']);
 Route::get('/admin-login',[AdminLoginController::class,'index']);
 Route::get('/admin-login/dashboard',[AdminDashboardController::class,'index']);
+Route::get('/admin-login/addcategory',[AddCategoryController::class,'index']);
+Route::post('/admin-login/addcategory',[AddCategoryController::class,'store']);
+Route::get('/admin-login/managecategory',[AddCategoryController::class,'show']);
